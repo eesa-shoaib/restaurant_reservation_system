@@ -1,24 +1,47 @@
-# Nestjs specific
-/dist
-/node_modules
-/build
-/tmp
 
+# Dependencies
+node_modules/
+**/node_modules/
+ 
+# Build output
+dist/
+.output/
+.nuxt/
+.nitro/
+.cache/
+ 
+# Env files
+.env
+.env.local
+.env.*.local
+!.env.example
+ 
 # Logs
-logs
 *.log
 npm-debug.log*
-pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-lerna-debug.log*
+ 
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+ 
+# OS
+.DS_Store
+Thumbs.db
+ 
+# TypeORM migrations sometimes generate temp files
+*.tsbuildinfo
+ 
+# Test coverage
+coverage/
 
-# dotenv environment variable files
-.env
-.env.development
-.env.test
-.env.production
+# SQL files
+*.sql
+docs/database/*.sql
+ 
+backend/.env.example
+backend/.env
 
-# temp directory
-.temp
-.tmp
+backend/certs/ca.pem
