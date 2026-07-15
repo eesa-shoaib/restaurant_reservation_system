@@ -3,12 +3,14 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  Unique,
 } from "typeorm";
 
-export type UserRole = "user" | "customer";
+export type UserRole = "owner" | "customer";
 
-@Entity("users")
-export class Users {
+@Entity('users')
+@Unique('uq_users_email', ['email'])
+export class User {
   @PrimaryGeneratedColumn({ type: "bigint", unsigned: true }) id!: number;
 
   @Column({ name: "full_name", length: 150 })
@@ -24,5 +26,5 @@ export class Users {
   role: UserRole;
 
   @CreateDateColumn({ name: 'created_at' })
-  create_at: string;
+  created_at: Date;
 }
