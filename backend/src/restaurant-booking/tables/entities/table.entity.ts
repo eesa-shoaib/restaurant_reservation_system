@@ -19,3 +19,4 @@ export class RestaurantTables {
   seats: number;
 
 }
+

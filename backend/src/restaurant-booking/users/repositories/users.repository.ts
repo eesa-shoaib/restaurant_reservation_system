@@ -1,14 +1,11 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { User } from "src/restaurant-booking/users/entities/users.entity";
+import { User } from "../entities/users.entity";
 
 @Injectable()
-export class ReservationRepository {
-
-  constructor(
-    @InjectRepository(User) private readonly repo: Repository<User>,
-  ) { }
+export class UserRepository {
+  constructor(@InjectRepository(User) private readonly repo: Repository<User>,) { }
 
   findByEmail(email: string) {
     return this.repo.findOne({ where: { email } });
@@ -20,5 +17,9 @@ export class ReservationRepository {
 
   create(data: Partial<User>) {
     return this.repo.save(this.repo.create(data));
+  }
+
+  existsByEmail(email: string) {
+    return this.repo.exists({ where: { email } });
   }
 }

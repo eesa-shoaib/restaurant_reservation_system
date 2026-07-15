@@ -16,7 +16,7 @@ Standard NestJS modular structure. One feature module (`RestaurantBookingModule`
 src/
 ├── main.ts                          # Bootstrap, port 3000
 ├── app.module.ts                    # Root: ConfigModule, TypeORM (MySQL+SSL), RestaurantBookingModule
-├── app.controller.ts                # GET / → "Hello World!"
+├── app.controller.ts  
 ├── app.service.ts
 └── restaurant-booking/
     ├── restaurant-booking.module.ts # Aggregates 4 submodules
